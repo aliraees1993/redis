@@ -1,0 +1,46 @@
+Redis
+-----
+It is a key-value store
+
+Data Types
+----------
+-- Strings
+-- Hashes - we can think of hash as a javascript object
+-- Lists - Implemented using Linked Lists
+-- Sets - Unordered collection of strings, no duplicates
+-- Sorted Sets - Sorted collection of strings, no duplicates. Sorted based on rank
+
+Commands
+--------
+- SET name "Ali" // Set value by key, name -> key, Ali -> value
+- GET name // Get value by key, name -> key
+- EXISTS name // If key exists
+- DEL name // Delete key
+- EXPIRE name 10 // Expire key in seconds
+- INCRBY
+    - SET counter 10
+    - INCRBY counter 10 // Increment key value, 10 + 10
+- DECR counter // Value can only be decremented by 1
+
+- MSET a 2 b 5 // Set multiple key value pairs, set a and b
+- MGET a b // Get multiple key value pairs, get a and b
+
+- HMSET user id 1 name "Ali" // Creates a hash, user = {id:1, name:"Ali"}
+- HGET user id // Gets a hash value, get's user.id value
+- HGETALL user // Get the whole hash
+
+- LPUSH ourList 10 // Right push to List
+- RPUSH ourList 10 // Left push to List
+- LRANGE ourList 0 1 // To read from List, read from range 0 to 1
+- LPOP ourList // Pop from left side of List
+- RPOP ourList // Pop from right side of List
+
+- SADD ourSet 1 2 3 4 5 // Add elements to Set
+- SMEMBERS ourset // To see the members of Set
+- SISMEMBER ourSet 5 // See if its a member of Set i.e if 5 is a member
+
+- ZADD sortedSet 50 "Hi" // Add string to sorted set with rank, add "Hi" with rank 50
+- ZADD sortedSet 40 "Bye"
+- ZADD sortedSet 30 "Still Here"
+- ZRANGE sortedSet 0 2 // To read from Sorted Set, read from range 0 to 2
+- ZRANK sortedSet "Hi" // Get the rank of Hi
